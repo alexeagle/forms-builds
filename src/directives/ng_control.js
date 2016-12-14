@@ -1,0 +1,62 @@
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+import { AbstractControlDirective } from './abstract_control_directive';
+/**
+ * @return {?}
+ */
+function unimplemented() {
+    throw new Error('unimplemented');
+}
+/**
+ * A base class that all control directive extend.
+ * It binds a {\@link FormControl} object to a DOM element.
+ *
+ * Used internally by Angular forms.
+ *
+ * @abstract
+ */
+export class NgControl extends AbstractControlDirective {
+    constructor() {
+        super(...arguments);
+        /** @internal */
+        this._parent = null;
+        this.name = null;
+        this.valueAccessor = null;
+        /** @internal */
+        this._rawValidators = [];
+        /** @internal */
+        this._rawAsyncValidators = [];
+    }
+    /**
+     * @return {?}
+     */
+    get validator() { return (unimplemented()); }
+    /**
+     * @return {?}
+     */
+    get asyncValidator() { return (unimplemented()); }
+    /**
+     * @abstract
+     * @param {?} newValue
+     * @return {?}
+     */
+    viewToModelUpdate(newValue) { }
+}
+function NgControl_tsickle_Closure_declarations() {
+    /** @type {?} */
+    NgControl.prototype._parent;
+    /** @type {?} */
+    NgControl.prototype.name;
+    /** @type {?} */
+    NgControl.prototype.valueAccessor;
+    /** @type {?} */
+    NgControl.prototype._rawValidators;
+    /** @type {?} */
+    NgControl.prototype._rawAsyncValidators;
+}
+//# sourceMappingURL=ng_control.js.map
