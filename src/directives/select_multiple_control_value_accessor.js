@@ -75,12 +75,16 @@ export class SelectMultipleControlValueAccessor {
      */
     writeValue(value) {
         this.value = value;
-        if (value == null)
-            return;
-        const /** @type {?} */ values = (value);
-        // convert values to ids
-        const /** @type {?} */ ids = values.map((v) => this._getOptionId(v));
-        this._optionMap.forEach((opt, o) => { opt._setSelected(ids.indexOf(o.toString()) > -1); });
+        let /** @type {?} */ optionSelectedStateSetter;
+        if (Array.isArray(value)) {
+            // convert values to ids
+            const /** @type {?} */ ids = value.map((v) => this._getOptionId(v));
+            optionSelectedStateSetter = (opt, o) => { opt._setSelected(ids.indexOf(o.toString()) > -1); };
+        }
+        else {
+            optionSelectedStateSetter = (opt, o) => { opt._setSelected(false); };
+        }
+        this._optionMap.forEach(optionSelectedStateSetter);
     }
     /**
      * @param {?} fn
@@ -107,6 +111,7 @@ export class SelectMultipleControlValueAccessor {
                     }
                 }
             }
+            this.value = selected;
             fn(selected);
         };
     }

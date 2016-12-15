@@ -5,6 +5,11 @@ export const /** @type {?} */ REQUIRED_VALIDATOR = {
     useExisting: forwardRef(() => RequiredValidator),
     multi: true
 };
+export const /** @type {?} */ CHECKBOX_REQUIRED_VALIDATOR = {
+    provide: NG_VALIDATORS,
+    useExisting: forwardRef(() => CheckboxRequiredValidator),
+    multi: true
+};
 /**
  * A Directive that adds the `required` validator to any controls marked with the
  * `required` attribute, via the {\@link NG_VALIDATORS} binding.
@@ -45,7 +50,7 @@ export class RequiredValidator {
 }
 RequiredValidator.decorators = [
     { type: Directive, args: [{
-                selector: '[required][formControlName],[required][formControl],[required][ngModel]',
+                selector: ':not([type=checkbox])[required][formControlName],:not([type=checkbox])[required][formControl],:not([type=checkbox])[required][ngModel]',
                 providers: [REQUIRED_VALIDATOR],
                 host: { '[attr.required]': 'required ? "" : null' }
             },] },
@@ -69,6 +74,44 @@ function RequiredValidator_tsickle_Closure_declarations() {
     RequiredValidator.prototype._required;
     /** @type {?} */
     RequiredValidator.prototype._onChange;
+}
+/**
+ * A Directive that adds the `required` validator to checkbox controls marked with the
+ * `required` attribute, via the {\@link NG_VALIDATORS} binding.
+ *
+ * ### Example
+ *
+ * ```
+ * <input type="checkbox" name="active" ngModel required>
+ * ```
+ *
+ */
+export class CheckboxRequiredValidator extends RequiredValidator {
+    /**
+     * @param {?} c
+     * @return {?}
+     */
+    validate(c) {
+        return this.required ? Validators.requiredTrue(c) : null;
+    }
+}
+CheckboxRequiredValidator.decorators = [
+    { type: Directive, args: [{
+                selector: 'input[type=checkbox][required][formControlName],input[type=checkbox][required][formControl],input[type=checkbox][required][ngModel]',
+                providers: [CHECKBOX_REQUIRED_VALIDATOR],
+                host: { '[attr.required]': 'required ? "" : null' }
+            },] },
+];
+/** @nocollapse */
+CheckboxRequiredValidator.ctorParameters = () => [];
+function CheckboxRequiredValidator_tsickle_Closure_declarations() {
+    /** @type {?} */
+    CheckboxRequiredValidator.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    CheckboxRequiredValidator.ctorParameters;
 }
 /**
  * Provider which adds {@link MinLengthValidator} to {@link NG_VALIDATORS}.
