@@ -40,6 +40,7 @@ export const /** @type {?} */ formControlBinding = {
  */
 const /** @type {?} */ resolvedPromise = Promise.resolve(null);
 /**
+ * \@whatItDoes Creates a {\@link FormControl} instance from a domain model and binds it
  * to a form control element.
  *
  * The {\@link FormControl} instance will track the value, user interaction, and
@@ -47,6 +48,7 @@ const /** @type {?} */ resolvedPromise = Promise.resolve(null);
  * within a parent form, the directive will also register itself with the form as a child
  * control.
  *
+ * \@howToUse
  *
  * This directive can be used by itself or as part of a larger form. All you need is the
  * `ngModel` selector to activate it.
@@ -273,9 +275,15 @@ function NgModel_tsickle_Closure_declarations() {
     NgModel.ctorParameters;
     /** @type {?} */
     NgModel.propDecorators;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     NgModel.prototype._control;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     NgModel.prototype._registered;
     /** @type {?} */
     NgModel.prototype.viewModel;

@@ -18,6 +18,7 @@ function unimplemented() {
  *
  * Used internally by Angular forms.
  *
+ * \@stable
  * @abstract
  */
 export class NgControl extends AbstractControlDirective {
@@ -48,15 +49,24 @@ export class NgControl extends AbstractControlDirective {
     viewToModelUpdate(newValue) { }
 }
 function NgControl_tsickle_Closure_declarations() {
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     NgControl.prototype._parent;
     /** @type {?} */
     NgControl.prototype.name;
     /** @type {?} */
     NgControl.prototype.valueAccessor;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     NgControl.prototype._rawValidators;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     NgControl.prototype._rawAsyncValidators;
 }
 //# sourceMappingURL=ng_control.js.map

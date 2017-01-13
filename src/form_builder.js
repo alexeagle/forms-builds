@@ -9,11 +9,13 @@ import { Injectable } from '@angular/core/index';
 import { isPresent } from './facade/lang';
 import { FormArray, FormControl, FormGroup } from './model';
 /**
+ * \@whatItDoes Creates an {\@link AbstractControl} from a user-specified configuration.
  *
  * It is essentially syntactic sugar that shortens the `new FormGroup()`,
  * `new FormControl()`, and `new FormArray()` boilerplate that can build up in larger
  * forms.
  *
+ * \@howToUse
  *
  * To use, inject `FormBuilder` into your component class. You can then call its methods
  * directly.
@@ -24,6 +26,7 @@ import { FormArray, FormControl, FormGroup } from './model';
  *
  *  * **NgModule**: {\@link ReactiveFormsModule}
  *
+ * \@stable
  */
 export class FormBuilder {
     /**
@@ -69,6 +72,7 @@ export class FormBuilder {
         return new FormArray(controls, validator, asyncValidator);
     }
     /**
+     * \@internal
      * @param {?} controlsConfig
      * @return {?}
      */
@@ -80,6 +84,7 @@ export class FormBuilder {
         return controls;
     }
     /**
+     * \@internal
      * @param {?} controlConfig
      * @return {?}
      */

@@ -17,7 +17,9 @@ export const /** @type {?} */ formGroupNameProvider = {
     useExisting: forwardRef(() => FormGroupName)
 };
 /**
+ * \@whatItDoes Syncs a nested {\@link FormGroup} to a DOM element.
  *
+ * \@howToUse
  *
  * This directive can only be used with a parent {\@link FormGroupDirective} (selector:
  * `[formGroup]`).
@@ -56,6 +58,7 @@ export const /** @type {?} */ formGroupNameProvider = {
  *
  * * **NgModule**: `ReactiveFormsModule`
  *
+ * \@stable
  */
 export class FormGroupName extends AbstractFormGroupDirective {
     /**
@@ -70,6 +73,7 @@ export class FormGroupName extends AbstractFormGroupDirective {
         this._asyncValidators = asyncValidators;
     }
     /**
+     * \@internal
      * @return {?}
      */
     _checkParentType() {
@@ -108,7 +112,9 @@ export const /** @type {?} */ formArrayNameProvider = {
     useExisting: forwardRef(() => FormArrayName)
 };
 /**
+ * \@whatItDoes Syncs a nested {\@link FormArray} to a DOM element.
  *
+ * \@howToUse
  *
  * This directive is designed to be used with a parent {\@link FormGroupDirective} (selector:
  * `[formGroup]`).
@@ -150,6 +156,7 @@ export const /** @type {?} */ formArrayNameProvider = {
  *
  * * **NgModule**: `ReactiveFormsModule`
  *
+ * \@stable
  */
 export class FormArrayName extends ControlContainer {
     /**
@@ -231,11 +238,20 @@ function FormArrayName_tsickle_Closure_declarations() {
     FormArrayName.ctorParameters;
     /** @type {?} */
     FormArrayName.propDecorators;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     FormArrayName.prototype._parent;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     FormArrayName.prototype._validators;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     FormArrayName.prototype._asyncValidators;
     /** @type {?} */
     FormArrayName.prototype.name;

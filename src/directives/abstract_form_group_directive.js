@@ -10,6 +10,7 @@ import { composeAsyncValidators, composeValidators, controlPath } from './shared
 /**
  * This is a base class for code shared between {\@link NgModelGroup} and {\@link FormGroupName}.
  *
+ * \@stable
  */
 export class AbstractFormGroupDirective extends ControlContainer {
     /**
@@ -51,16 +52,26 @@ export class AbstractFormGroupDirective extends ControlContainer {
      */
     get asyncValidator() { return composeAsyncValidators(this._asyncValidators); }
     /**
+     * \@internal
      * @return {?}
      */
     _checkParentType() { }
 }
 function AbstractFormGroupDirective_tsickle_Closure_declarations() {
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     AbstractFormGroupDirective.prototype._parent;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     AbstractFormGroupDirective.prototype._validators;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     AbstractFormGroupDirective.prototype._asyncValidators;
 }
 //# sourceMappingURL=abstract_form_group_directive.js.map

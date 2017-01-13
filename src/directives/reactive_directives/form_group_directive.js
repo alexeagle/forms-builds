@@ -17,7 +17,9 @@ export const /** @type {?} */ formDirectiveProvider = {
     useExisting: forwardRef(() => FormGroupDirective)
 };
 /**
+ * \@whatItDoes Binds an existing {\@link FormGroup} to a DOM element.
  *
+ * \@howToUse
  *
  * This directive accepts an existing {\@link FormGroup} instance. It will then use this
  * {\@link FormGroup} instance to match any child {\@link FormControl}, {\@link FormGroup},
@@ -181,6 +183,7 @@ export class FormGroupDirective extends ControlContainer {
         this._submitted = false;
     }
     /**
+     * \@internal
      * @return {?}
      */
     _updateDomValue() {

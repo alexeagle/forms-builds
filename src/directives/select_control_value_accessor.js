@@ -33,10 +33,12 @@ function _extractId(valueString) {
     return valueString.split(':')[0];
 }
 /**
+ * \@whatItDoes Writes values and listens to changes on a select element.
  *
  * Used by {\@link NgModel}, {\@link FormControlDirective}, and {\@link FormControlName}
  * to keep the view synced with the {\@link FormControl} model.
  *
+ * \@howToUse
  *
  * If you have imported the {\@link FormsModule} or the {\@link ReactiveFormsModule}, this
  * value accessor will be active on any select control that has a form directive. You do
@@ -66,6 +68,7 @@ function _extractId(valueString) {
  *
  * * **npm package**: `\@angular/forms`
  *
+ * \@stable
  */
 export class SelectControlValueAccessor {
     /**
@@ -114,10 +117,12 @@ export class SelectControlValueAccessor {
         this._renderer.setElementProperty(this._elementRef.nativeElement, 'disabled', isDisabled);
     }
     /**
+     * \@internal
      * @return {?}
      */
     _registerOption() { return (this._idCounter++).toString(); }
     /**
+     * \@internal
      * @param {?} value
      * @return {?}
      */
@@ -129,6 +134,7 @@ export class SelectControlValueAccessor {
         return null;
     }
     /**
+     * \@internal
      * @param {?} valueString
      * @return {?}
      */
@@ -159,9 +165,15 @@ function SelectControlValueAccessor_tsickle_Closure_declarations() {
     SelectControlValueAccessor.ctorParameters;
     /** @type {?} */
     SelectControlValueAccessor.prototype.value;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     SelectControlValueAccessor.prototype._optionMap;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     SelectControlValueAccessor.prototype._idCounter;
     /** @type {?} */
     SelectControlValueAccessor.prototype.onChange;
@@ -173,10 +185,13 @@ function SelectControlValueAccessor_tsickle_Closure_declarations() {
     SelectControlValueAccessor.prototype._elementRef;
 }
 /**
+ * \@whatItDoes Marks `<option>` as dynamic, so Angular can be notified when options change.
  *
+ * \@howToUse
  *
  * See docs for {\@link SelectControlValueAccessor} for usage examples.
  *
+ * \@stable
  */
 export class NgSelectOption {
     /**
@@ -212,6 +227,7 @@ export class NgSelectOption {
             this._select.writeValue(this._select.value);
     }
     /**
+     * \@internal
      * @param {?} value
      * @return {?}
      */

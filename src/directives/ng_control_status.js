@@ -61,6 +61,7 @@ export const /** @type {?} */ ngControlStatusHost = {
  * Directive automatically applied to Angular form controls that sets CSS classes
  * based on control status (valid/invalid/dirty/etc).
  *
+ * \@stable
  */
 export class NgControlStatus extends AbstractControlStatus {
     /**
@@ -90,6 +91,7 @@ function NgControlStatus_tsickle_Closure_declarations() {
  * Directive automatically applied to Angular form groups that sets CSS classes
  * based on control status (valid/invalid/dirty/etc).
  *
+ * \@stable
  */
 export class NgControlStatusGroup extends AbstractControlStatus {
     /**

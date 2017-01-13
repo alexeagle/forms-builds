@@ -21,6 +21,7 @@ export const /** @type {?} */ controlNameBinding = {
     useExisting: forwardRef(() => FormControlName)
 };
 /**
+ * \@whatItDoes Syncs a {\@link FormControl} in an existing {\@link FormGroup} to a form control
  * element by name.
  *
  * In other words, this directive ensures that any values written to the {\@link FormControl}
@@ -28,6 +29,7 @@ export const /** @type {?} */ controlNameBinding = {
  * any values written to the DOM element through user input will be reflected in the
  * {\@link FormControl} instance (view -> model).
  *
+ * \@howToUse
  *
  * This directive is designed to be used with a parent {\@link FormGroupDirective} (selector:
  * `[formGroup]`).
@@ -193,9 +195,15 @@ function FormControlName_tsickle_Closure_declarations() {
     FormControlName.propDecorators;
     /** @type {?} */
     FormControlName.prototype._added;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     FormControlName.prototype.viewModel;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     FormControlName.prototype._control;
     /** @type {?} */
     FormControlName.prototype.name;

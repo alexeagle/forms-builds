@@ -80,10 +80,12 @@ function RadioControlRegistry_tsickle_Closure_declarations() {
     RadioControlRegistry.prototype._accessors;
 }
 /**
+ * \@whatItDoes Writes radio control values and listens to radio control changes.
  *
  * Used by {\@link NgModel}, {\@link FormControlDirective}, and {\@link FormControlName}
  * to keep the view synced with the {\@link FormControl} model.
  *
+ * \@howToUse
  *
  * If you have imported the {\@link FormsModule} or the {\@link ReactiveFormsModule}, this
  * value accessor will be active on any radio control that has a form directive. You do
@@ -218,11 +220,20 @@ function RadioControlValueAccessor_tsickle_Closure_declarations() {
     RadioControlValueAccessor.ctorParameters;
     /** @type {?} */
     RadioControlValueAccessor.propDecorators;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     RadioControlValueAccessor.prototype._state;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     RadioControlValueAccessor.prototype._control;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     RadioControlValueAccessor.prototype._fn;
     /** @type {?} */
     RadioControlValueAccessor.prototype.onChange;

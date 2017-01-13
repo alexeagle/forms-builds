@@ -21,6 +21,7 @@
      *
      * Only used internally in the forms module.
      *
+     * \@stable
      * @abstract
      */
     var AbstractControlDirective = (function () {
@@ -193,6 +194,7 @@
      *
      * Only used by the forms module.
      *
+     * \@stable
      */
     var ControlContainer = (function (_super) {
         __extends$1(ControlContainer, _super);
@@ -377,7 +379,8 @@
      * @return {?}
      */
     function isEmptyInputValue(value) {
-        return value == null || typeof value === 'string' && value.length === 0;
+        // we don't check for string here so it also works with arrays
+        return value == null || value.length === 0;
     }
     /**
      * Providers for validators to be used for {@link FormControl}s in a form.
@@ -413,6 +416,7 @@
      * var loginControl = new FormControl("", Validators.required)
      * ```
      *
+     * \@stable
      */
     var Validators = (function () {
         function Validators() {
@@ -833,6 +837,7 @@
      *
      * Used internally by Angular forms.
      *
+     * \@stable
      * @abstract
      */
     var NgControl = (function (_super) {
@@ -936,10 +941,12 @@
         return RadioControlRegistry;
     }());
     /**
+     * \@whatItDoes Writes radio control values and listens to radio control changes.
      *
      * Used by {\@link NgModel}, {\@link FormControlDirective}, and {\@link FormControlName}
      * to keep the view synced with the {\@link FormControl} model.
      *
+     * \@howToUse
      *
      * If you have imported the {\@link FormsModule} or the {\@link ReactiveFormsModule}, this
      * value accessor will be active on any radio control that has a form directive. You do
@@ -1159,10 +1166,12 @@
         return valueString.split(':')[0];
     }
     /**
+     * \@whatItDoes Writes values and listens to changes on a select element.
      *
      * Used by {\@link NgModel}, {\@link FormControlDirective}, and {\@link FormControlName}
      * to keep the view synced with the {\@link FormControl} model.
      *
+     * \@howToUse
      *
      * If you have imported the {\@link FormsModule} or the {\@link ReactiveFormsModule}, this
      * value accessor will be active on any select control that has a form directive. You do
@@ -1192,6 +1201,7 @@
      *
      * * **npm package**: `\@angular/forms`
      *
+     * \@stable
      */
     var SelectControlValueAccessor = (function () {
         /**
@@ -1241,10 +1251,12 @@
             this._renderer.setElementProperty(this._elementRef.nativeElement, 'disabled', isDisabled);
         };
         /**
+         * \@internal
          * @return {?}
          */
         SelectControlValueAccessor.prototype._registerOption = function () { return (this._idCounter++).toString(); };
         /**
+         * \@internal
          * @param {?} value
          * @return {?}
          */
@@ -1257,6 +1269,7 @@
             return null;
         };
         /**
+         * \@internal
          * @param {?} valueString
          * @return {?}
          */
@@ -1279,10 +1292,13 @@
         return SelectControlValueAccessor;
     }());
     /**
+     * \@whatItDoes Marks `<option>` as dynamic, so Angular can be notified when options change.
      *
+     * \@howToUse
      *
      * See docs for {\@link SelectControlValueAccessor} for usage examples.
      *
+     * \@stable
      */
     var NgSelectOption = (function () {
         /**
@@ -1326,6 +1342,7 @@
             configurable: true
         });
         /**
+         * \@internal
          * @param {?} value
          * @return {?}
          */
@@ -1386,6 +1403,7 @@
     /**
      * The accessor for writing a value and listening to changes on a select element.
      *
+     * \@stable
      */
     var SelectMultipleControlValueAccessor = (function () {
         /**
@@ -1463,6 +1481,7 @@
             this._renderer.setElementProperty(this._elementRef.nativeElement, 'disabled', isDisabled);
         };
         /**
+         * \@internal
          * @param {?} value
          * @return {?}
          */
@@ -1472,6 +1491,7 @@
             return id;
         };
         /**
+         * \@internal
          * @param {?} value
          * @return {?}
          */
@@ -1484,6 +1504,7 @@
             return null;
         };
         /**
+         * \@internal
          * @param {?} valueString
          * @return {?}
          */
@@ -1564,6 +1585,7 @@
             configurable: true
         });
         /**
+         * \@internal
          * @param {?} value
          * @return {?}
          */
@@ -1571,6 +1593,7 @@
             this._renderer.setElementProperty(this._element.nativeElement, 'value', value);
         };
         /**
+         * \@internal
          * @param {?} selected
          * @return {?}
          */
@@ -1802,6 +1825,7 @@
     /**
      * This is a base class for code shared between {\@link NgModelGroup} and {\@link FormGroupName}.
      *
+     * \@stable
      */
     var AbstractFormGroupDirective = (function (_super) {
         __extends(AbstractFormGroupDirective, _super);
@@ -1867,6 +1891,7 @@
             configurable: true
         });
         /**
+         * \@internal
          * @return {?}
          */
         AbstractFormGroupDirective.prototype._checkParentType = function () { };
@@ -1963,6 +1988,7 @@
      * Directive automatically applied to Angular form controls that sets CSS classes
      * based on control status (valid/invalid/dirty/etc).
      *
+     * \@stable
      */
     var NgControlStatus = (function (_super) {
         __extends$3(NgControlStatus, _super);
@@ -1985,6 +2011,7 @@
      * Directive automatically applied to Angular form groups that sets CSS classes
      * based on control status (valid/invalid/dirty/etc).
      *
+     * \@stable
      */
     var NgControlStatusGroup = (function (_super) {
         __extends$3(NgControlStatusGroup, _super);
@@ -2028,6 +2055,7 @@
      * title gets clicked:
      *
      * ```
+     * \@Component({
      *   selector: 'zippy',
      *   template: `
      *   <div class="zippy">
@@ -2063,6 +2091,7 @@
      * https://github.com/jhusain/observable-spec
      *
      * Once a reference implementation of the spec is available, switch to it.
+     * \@stable
      */
     var EventEmitter = (function (_super) {
         __extends$5(EventEmitter, _super);
@@ -2197,6 +2226,7 @@
         return Array.isArray(asyncValidator) ? composeAsyncValidators(asyncValidator) : asyncValidator;
     }
     /**
+     * \@whatItDoes This is the base class for {\@link FormControl}, {\@link FormGroup}, and
      * {\@link FormArray}.
      *
      * It provides some of the shared behavior that all controls and groups of controls have, like
@@ -2204,6 +2234,7 @@
      * that are shared between all sub-classes, like `value`, `valid`, and `dirty`. It shouldn't be
      * instantiated directly.
      *
+     * \@stable
      * @abstract
      */
     var AbstractControl = (function () {
@@ -2603,6 +2634,7 @@
             }
         };
         /**
+         * \@internal
          * @param {?=} __0
          * @return {?}
          */
@@ -2733,6 +2765,7 @@
             configurable: true
         });
         /**
+         * \@internal
          * @param {?} emitEvent
          * @return {?}
          */
@@ -2746,6 +2779,7 @@
             }
         };
         /**
+         * \@internal
          * @return {?}
          */
         AbstractControl.prototype._initObservables = function () {
@@ -2767,28 +2801,33 @@
             return VALID;
         };
         /**
+         * \@internal
          * @abstract
          * @return {?}
          */
         AbstractControl.prototype._updateValue = function () { };
         /**
+         * \@internal
          * @abstract
          * @param {?} cb
          * @return {?}
          */
         AbstractControl.prototype._forEachChild = function (cb) { };
         /**
+         * \@internal
          * @abstract
          * @param {?} condition
          * @return {?}
          */
         AbstractControl.prototype._anyControls = function (condition) { };
         /**
+         * \@internal
          * @abstract
          * @return {?}
          */
         AbstractControl.prototype._allControlsDisabled = function () { };
         /**
+         * \@internal
          * @param {?} status
          * @return {?}
          */
@@ -2796,18 +2835,21 @@
             return this._anyControls(function (control) { return control.status === status; });
         };
         /**
+         * \@internal
          * @return {?}
          */
         AbstractControl.prototype._anyControlsDirty = function () {
             return this._anyControls(function (control) { return control.dirty; });
         };
         /**
+         * \@internal
          * @return {?}
          */
         AbstractControl.prototype._anyControlsTouched = function () {
             return this._anyControls(function (control) { return control.touched; });
         };
         /**
+         * \@internal
          * @param {?=} __0
          * @return {?}
          */
@@ -2819,6 +2861,7 @@
             }
         };
         /**
+         * \@internal
          * @param {?=} __0
          * @return {?}
          */
@@ -2830,6 +2873,7 @@
             }
         };
         /**
+         * \@internal
          * @param {?} formState
          * @return {?}
          */
@@ -2838,6 +2882,7 @@
                 Object.keys(formState).length === 2 && 'value' in formState && 'disabled' in formState;
         };
         /**
+         * \@internal
          * @param {?} fn
          * @return {?}
          */
@@ -2845,10 +2890,12 @@
         return AbstractControl;
     }());
     /**
+     * \@whatItDoes Tracks the value and validation status of an individual form control.
      *
      * It is one of the three fundamental building blocks of Angular forms, along with
      * {\@link FormGroup} and {\@link FormArray}.
      *
+     * \@howToUse
      *
      * When instantiating a {\@link FormControl}, you can pass in an initial value as the
      * first argument. Example:
@@ -2883,6 +2930,7 @@
      *
      * * **npm package**: `\@angular/forms`
      *
+     * \@stable
      */
     var FormControl = (function (_super) {
         __extends$6(FormControl, _super);
@@ -2985,15 +3033,18 @@
             this.setValue(this._value, { onlySelf: onlySelf, emitEvent: emitEvent });
         };
         /**
+         * \@internal
          * @return {?}
          */
         FormControl.prototype._updateValue = function () { };
         /**
+         * \@internal
          * @param {?} condition
          * @return {?}
          */
         FormControl.prototype._anyControls = function (condition) { return false; };
         /**
+         * \@internal
          * @return {?}
          */
         FormControl.prototype._allControlsDisabled = function () { return this.disabled; };
@@ -3004,6 +3055,7 @@
          */
         FormControl.prototype.registerOnChange = function (fn) { this._onChange.push(fn); };
         /**
+         * \@internal
          * @return {?}
          */
         FormControl.prototype._clearChangeFns = function () {
@@ -3020,6 +3072,7 @@
             this._onDisabledChange.push(fn);
         };
         /**
+         * \@internal
          * @param {?} cb
          * @return {?}
          */
@@ -3041,6 +3094,7 @@
         return FormControl;
     }(AbstractControl));
     /**
+     * \@whatItDoes Tracks the value and validity state of a group of {\@link FormControl}
      * instances.
      *
      * A `FormGroup` aggregates the values of each child {\@link FormControl} into one object,
@@ -3051,6 +3105,7 @@
      * `FormGroup` is one of the three fundamental building blocks used to define forms in Angular,
      * along with {\@link FormControl} and {\@link FormArray}.
      *
+     * \@howToUse
      *
      * When instantiating a {\@link FormGroup}, pass in a collection of child controls as the first
      * argument. The key for each child will be the name under which it is registered.
@@ -3088,6 +3143,7 @@
      *
      * * **npm package**: `\@angular/forms`
      *
+     * \@stable
      */
     var FormGroup = (function (_super) {
         __extends$6(FormGroup, _super);
@@ -3299,6 +3355,7 @@
             });
         };
         /**
+         * \@internal
          * @param {?} name
          * @return {?}
          */
@@ -3311,6 +3368,7 @@
             }
         };
         /**
+         * \@internal
          * @param {?} cb
          * @return {?}
          */
@@ -3319,6 +3377,7 @@
             Object.keys(this.controls).forEach(function (k) { return cb(_this.controls[k], k); });
         };
         /**
+         * \@internal
          * @return {?}
          */
         FormGroup.prototype._setUpControls = function () {
@@ -3329,10 +3388,12 @@
             });
         };
         /**
+         * \@internal
          * @return {?}
          */
         FormGroup.prototype._updateValue = function () { this._value = this._reduceValue(); };
         /**
+         * \@internal
          * @param {?} condition
          * @return {?}
          */
@@ -3345,6 +3406,7 @@
             return res;
         };
         /**
+         * \@internal
          * @return {?}
          */
         FormGroup.prototype._reduceValue = function () {
@@ -3357,6 +3419,7 @@
             });
         };
         /**
+         * \@internal
          * @param {?} initValue
          * @param {?} fn
          * @return {?}
@@ -3367,6 +3430,7 @@
             return res;
         };
         /**
+         * \@internal
          * @return {?}
          */
         FormGroup.prototype._allControlsDisabled = function () {
@@ -3379,6 +3443,7 @@
             return Object.keys(this.controls).length > 0 || this.disabled;
         };
         /**
+         * \@internal
          * @param {?} value
          * @return {?}
          */
@@ -3392,6 +3457,7 @@
         return FormGroup;
     }(AbstractControl));
     /**
+     * \@whatItDoes Tracks the value and validity state of an array of {\@link FormControl}
      * instances.
      *
      * A `FormArray` aggregates the values of each child {\@link FormControl} into an array.
@@ -3401,6 +3467,7 @@
      * `FormArray` is one of the three fundamental building blocks used to define forms in Angular,
      * along with {\@link FormControl} and {\@link FormGroup}.
      *
+     * \@howToUse
      *
      * When instantiating a {\@link FormArray}, pass in an array of child controls as the first
      * argument.
@@ -3431,6 +3498,7 @@
      *
      * * **npm package**: `\@angular/forms`
      *
+     * \@stable
      */
     var FormArray = (function (_super) {
         __extends$6(FormArray, _super);
@@ -3635,6 +3703,7 @@
          */
         FormArray.prototype.getRawValue = function () { return this.controls.map(function (control) { return control.value; }); };
         /**
+         * \@internal
          * @param {?} index
          * @return {?}
          */
@@ -3647,6 +3716,7 @@
             }
         };
         /**
+         * \@internal
          * @param {?} cb
          * @return {?}
          */
@@ -3654,6 +3724,7 @@
             this.controls.forEach(function (control, index) { cb(control, index); });
         };
         /**
+         * \@internal
          * @return {?}
          */
         FormArray.prototype._updateValue = function () {
@@ -3662,6 +3733,7 @@
                 .map(function (control) { return control.value; });
         };
         /**
+         * \@internal
          * @param {?} condition
          * @return {?}
          */
@@ -3669,6 +3741,7 @@
             return this.controls.some(function (control) { return control.enabled && condition(control); });
         };
         /**
+         * \@internal
          * @return {?}
          */
         FormArray.prototype._setUpControls = function () {
@@ -3676,6 +3749,7 @@
             this._forEachChild(function (control) { return _this._registerControl(control); });
         };
         /**
+         * \@internal
          * @param {?} value
          * @return {?}
          */
@@ -3687,6 +3761,7 @@
             });
         };
         /**
+         * \@internal
          * @return {?}
          */
         FormArray.prototype._allControlsDisabled = function () {
@@ -3726,8 +3801,10 @@
     };
     var /** @type {?} */ resolvedPromise = Promise.resolve(null);
     /**
+     * \@whatItDoes Creates a top-level {\@link FormGroup} instance and binds it to a form
      * to track aggregate form value and validation status.
      *
+     * \@howToUse
      *
      * As soon as you import the `FormsModule`, this directive becomes active by default on
      * all `<form>` tags.  You don't need to add a special selector.
@@ -3910,6 +3987,7 @@
             this._submitted = false;
         };
         /**
+         * \@internal
          * @param {?} path
          * @return {?}
          */
@@ -3996,7 +4074,9 @@
         useExisting: _angular_core.forwardRef(function () { return NgModelGroup; })
     };
     /**
+     * \@whatItDoes Creates and binds a {\@link FormGroup} instance to a DOM element.
      *
+     * \@howToUse
      *
      * This directive can only be used as a child of {\@link NgForm} (or in other words,
      * within `<form>` tags).
@@ -4016,6 +4096,7 @@
      *
      * * **NgModule**: `FormsModule`
      *
+     * \@stable
      */
     var NgModelGroup = (function (_super) {
         __extends$8(NgModelGroup, _super);
@@ -4031,6 +4112,7 @@
             this._asyncValidators = asyncValidators;
         }
         /**
+         * \@internal
          * @return {?}
          */
         NgModelGroup.prototype._checkParentType = function () {
@@ -4088,6 +4170,7 @@
      */
     var /** @type {?} */ resolvedPromise$1 = Promise.resolve(null);
     /**
+     * \@whatItDoes Creates a {\@link FormControl} instance from a domain model and binds it
      * to a form control element.
      *
      * The {\@link FormControl} instance will track the value, user interaction, and
@@ -4095,6 +4178,7 @@
      * within a parent form, the directive will also register itself with the form as a child
      * control.
      *
+     * \@howToUse
      *
      * This directive can be used by itself or as part of a larger form. All you need is the
      * `ngModel` selector to activate it.
@@ -4395,12 +4479,14 @@
         useExisting: _angular_core.forwardRef(function () { return FormControlDirective; })
     };
     /**
+     * \@whatItDoes Syncs a standalone {\@link FormControl} instance to a form control element.
      *
      * In other words, this directive ensures that any values written to the {\@link FormControl}
      * instance programmatically will be written to the DOM element (model -> view). Conversely,
      * any values written to the DOM element through user input will be reflected in the
      * {\@link FormControl} instance (view -> model).
      *
+     * \@howToUse
      *
      * Use this directive if you'd like to create and manage a {\@link FormControl} instance directly.
      * Simply create a {\@link FormControl}, save it to your component class, and pass it into the
@@ -4558,7 +4644,9 @@
         useExisting: _angular_core.forwardRef(function () { return FormGroupDirective; })
     };
     /**
+     * \@whatItDoes Binds an existing {\@link FormGroup} to a DOM element.
      *
+     * \@howToUse
      *
      * This directive accepts an existing {\@link FormGroup} instance. It will then use this
      * {\@link FormGroup} instance to match any child {\@link FormControl}, {\@link FormGroup},
@@ -4740,6 +4828,7 @@
             this._submitted = false;
         };
         /**
+         * \@internal
          * @return {?}
          */
         FormGroupDirective.prototype._updateDomValue = function () {
@@ -4819,7 +4908,9 @@
         useExisting: _angular_core.forwardRef(function () { return FormGroupName; })
     };
     /**
+     * \@whatItDoes Syncs a nested {\@link FormGroup} to a DOM element.
      *
+     * \@howToUse
      *
      * This directive can only be used with a parent {\@link FormGroupDirective} (selector:
      * `[formGroup]`).
@@ -4858,6 +4949,7 @@
      *
      * * **NgModule**: `ReactiveFormsModule`
      *
+     * \@stable
      */
     var FormGroupName = (function (_super) {
         __extends$12(FormGroupName, _super);
@@ -4873,6 +4965,7 @@
             this._asyncValidators = asyncValidators;
         }
         /**
+         * \@internal
          * @return {?}
          */
         FormGroupName.prototype._checkParentType = function () {
@@ -4899,7 +4992,9 @@
         useExisting: _angular_core.forwardRef(function () { return FormArrayName; })
     };
     /**
+     * \@whatItDoes Syncs a nested {\@link FormArray} to a DOM element.
      *
+     * \@howToUse
      *
      * This directive is designed to be used with a parent {\@link FormGroupDirective} (selector:
      * `[formGroup]`).
@@ -4941,6 +5036,7 @@
      *
      * * **NgModule**: `ReactiveFormsModule`
      *
+     * \@stable
      */
     var FormArrayName = (function (_super) {
         __extends$12(FormArrayName, _super);
@@ -5060,6 +5156,7 @@
         useExisting: _angular_core.forwardRef(function () { return FormControlName; })
     };
     /**
+     * \@whatItDoes Syncs a {\@link FormControl} in an existing {\@link FormGroup} to a form control
      * element by name.
      *
      * In other words, this directive ensures that any values written to the {\@link FormControl}
@@ -5067,6 +5164,7 @@
      * any values written to the DOM element through user input will be reflected in the
      * {\@link FormControl} instance (view -> model).
      *
+     * \@howToUse
      *
      * This directive is designed to be used with a parent {\@link FormGroupDirective} (selector:
      * `[formGroup]`).
@@ -5272,6 +5370,7 @@
      * <input name="fullName" ngModel required>
      * ```
      *
+     * \@stable
      */
     var RequiredValidator = (function () {
         function RequiredValidator() {
@@ -5329,6 +5428,7 @@
      * <input type="checkbox" name="active" ngModel required>
      * ```
      *
+     * \@experimental
      */
     var CheckboxRequiredValidator = (function (_super) {
         __extends$13(CheckboxRequiredValidator, _super);
@@ -5369,6 +5469,7 @@
      * A directive which installs the {\@link MinLengthValidator} for any `formControlName`,
      * `formControl`, or control with `ngModel` that also has a `minlength` attribute.
      *
+     * \@stable
      */
     var MinLengthValidator = (function () {
         function MinLengthValidator() {
@@ -5433,6 +5534,7 @@
      * `formControl`,
      * or control with `ngModel` that also has a `maxlength` attribute.
      *
+     * \@stable
      */
     var MaxLengthValidator = (function () {
         function MaxLengthValidator() {
@@ -5496,6 +5598,7 @@
      * ```
      * <input [name]="fullName" pattern="[a-zA-Z ]*" ngModel>
      * ```
+     * \@stable
      */
     var PatternValidator = (function () {
         function PatternValidator() {
@@ -5541,11 +5644,13 @@
     }());
 
     /**
+     * \@whatItDoes Creates an {\@link AbstractControl} from a user-specified configuration.
      *
      * It is essentially syntactic sugar that shortens the `new FormGroup()`,
      * `new FormControl()`, and `new FormArray()` boilerplate that can build up in larger
      * forms.
      *
+     * \@howToUse
      *
      * To use, inject `FormBuilder` into your component class. You can then call its methods
      * directly.
@@ -5556,6 +5661,7 @@
      *
      *  * **NgModule**: {\@link ReactiveFormsModule}
      *
+     * \@stable
      */
     var FormBuilder = (function () {
         function FormBuilder() {
@@ -5609,6 +5715,7 @@
             return new FormArray(controls, validator, asyncValidator);
         };
         /**
+         * \@internal
          * @param {?} controlsConfig
          * @return {?}
          */
@@ -5621,6 +5728,7 @@
             return controls;
         };
         /**
+         * \@internal
          * @param {?} controlConfig
          * @return {?}
          */
@@ -5706,6 +5814,7 @@
 
     /**
      * The ng module for forms.
+     * \@stable
      */
     var FormsModule = (function () {
         function FormsModule() {
@@ -5723,6 +5832,7 @@
     }());
     /**
      * The ng module for reactive forms.
+     * \@stable
      */
     var ReactiveFormsModule = (function () {
         function ReactiveFormsModule() {

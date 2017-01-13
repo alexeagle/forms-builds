@@ -53,6 +53,7 @@ function HTMLCollection_tsickle_Closure_declarations() {
 /**
  * The accessor for writing a value and listening to changes on a select element.
  *
+ * \@stable
  */
 export class SelectMultipleControlValueAccessor {
     /**
@@ -128,6 +129,7 @@ export class SelectMultipleControlValueAccessor {
         this._renderer.setElementProperty(this._elementRef.nativeElement, 'disabled', isDisabled);
     }
     /**
+     * \@internal
      * @param {?} value
      * @return {?}
      */
@@ -137,6 +139,7 @@ export class SelectMultipleControlValueAccessor {
         return id;
     }
     /**
+     * \@internal
      * @param {?} value
      * @return {?}
      */
@@ -148,6 +151,7 @@ export class SelectMultipleControlValueAccessor {
         return null;
     }
     /**
+     * \@internal
      * @param {?} valueString
      * @return {?}
      */
@@ -178,9 +182,15 @@ function SelectMultipleControlValueAccessor_tsickle_Closure_declarations() {
     SelectMultipleControlValueAccessor.ctorParameters;
     /** @type {?} */
     SelectMultipleControlValueAccessor.prototype.value;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     SelectMultipleControlValueAccessor.prototype._optionMap;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     SelectMultipleControlValueAccessor.prototype._idCounter;
     /** @type {?} */
     SelectMultipleControlValueAccessor.prototype.onChange;
@@ -242,6 +252,7 @@ export class NgSelectMultipleOption {
         }
     }
     /**
+     * \@internal
      * @param {?} value
      * @return {?}
      */
@@ -249,6 +260,7 @@ export class NgSelectMultipleOption {
         this._renderer.setElementProperty(this._element.nativeElement, 'value', value);
     }
     /**
+     * \@internal
      * @param {?} selected
      * @return {?}
      */
@@ -290,7 +302,10 @@ function NgSelectMultipleOption_tsickle_Closure_declarations() {
     NgSelectMultipleOption.propDecorators;
     /** @type {?} */
     NgSelectMultipleOption.prototype.id;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     NgSelectMultipleOption.prototype._value;
     /** @type {?} */
     NgSelectMultipleOption.prototype._element;

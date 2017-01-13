@@ -16,7 +16,9 @@ export const /** @type {?} */ modelGroupProvider = {
     useExisting: forwardRef(() => NgModelGroup)
 };
 /**
+ * \@whatItDoes Creates and binds a {\@link FormGroup} instance to a DOM element.
  *
+ * \@howToUse
  *
  * This directive can only be used as a child of {\@link NgForm} (or in other words,
  * within `<form>` tags).
@@ -36,6 +38,7 @@ export const /** @type {?} */ modelGroupProvider = {
  *
  * * **NgModule**: `FormsModule`
  *
+ * \@stable
  */
 export class NgModelGroup extends AbstractFormGroupDirective {
     /**
@@ -50,6 +53,7 @@ export class NgModelGroup extends AbstractFormGroupDirective {
         this._asyncValidators = asyncValidators;
     }
     /**
+     * \@internal
      * @return {?}
      */
     _checkParentType() {

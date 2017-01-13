@@ -17,8 +17,10 @@ export const /** @type {?} */ formDirectiveProvider = {
 };
 const /** @type {?} */ resolvedPromise = Promise.resolve(null);
 /**
+ * \@whatItDoes Creates a top-level {\@link FormGroup} instance and binds it to a form
  * to track aggregate form value and validation status.
  *
+ * \@howToUse
  *
  * As soon as you import the `FormsModule`, this directive becomes active by default on
  * all `<form>` tags.  You don't need to add a special selector.
@@ -174,6 +176,7 @@ export class NgForm extends ControlContainer {
         this._submitted = false;
     }
     /**
+     * \@internal
      * @param {?} path
      * @return {?}
      */

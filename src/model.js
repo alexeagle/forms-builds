@@ -73,6 +73,7 @@ function coerceToAsyncValidator(asyncValidator) {
     return Array.isArray(asyncValidator) ? composeAsyncValidators(asyncValidator) : asyncValidator;
 }
 /**
+ * \@whatItDoes This is the base class for {\@link FormControl}, {\@link FormGroup}, and
  * {\@link FormArray}.
  *
  * It provides some of the shared behavior that all controls and groups of controls have, like
@@ -80,6 +81,7 @@ function coerceToAsyncValidator(asyncValidator) {
  * that are shared between all sub-classes, like `value`, `valid`, and `dirty`. It shouldn't be
  * instantiated directly.
  *
+ * \@stable
  * @abstract
  */
 export class AbstractControl {
@@ -411,6 +413,7 @@ export class AbstractControl {
         }
     }
     /**
+     * \@internal
      * @param {?=} __0
      * @return {?}
      */
@@ -532,6 +535,7 @@ export class AbstractControl {
         return x;
     }
     /**
+     * \@internal
      * @param {?} emitEvent
      * @return {?}
      */
@@ -545,6 +549,7 @@ export class AbstractControl {
         }
     }
     /**
+     * \@internal
      * @return {?}
      */
     _initObservables() {
@@ -566,28 +571,33 @@ export class AbstractControl {
         return VALID;
     }
     /**
+     * \@internal
      * @abstract
      * @return {?}
      */
     _updateValue() { }
     /**
+     * \@internal
      * @abstract
      * @param {?} cb
      * @return {?}
      */
     _forEachChild(cb) { }
     /**
+     * \@internal
      * @abstract
      * @param {?} condition
      * @return {?}
      */
     _anyControls(condition) { }
     /**
+     * \@internal
      * @abstract
      * @return {?}
      */
     _allControlsDisabled() { }
     /**
+     * \@internal
      * @param {?} status
      * @return {?}
      */
@@ -595,18 +605,21 @@ export class AbstractControl {
         return this._anyControls((control) => control.status === status);
     }
     /**
+     * \@internal
      * @return {?}
      */
     _anyControlsDirty() {
         return this._anyControls((control) => control.dirty);
     }
     /**
+     * \@internal
      * @return {?}
      */
     _anyControlsTouched() {
         return this._anyControls((control) => control.touched);
     }
     /**
+     * \@internal
      * @param {?=} __0
      * @return {?}
      */
@@ -617,6 +630,7 @@ export class AbstractControl {
         }
     }
     /**
+     * \@internal
      * @param {?=} __0
      * @return {?}
      */
@@ -627,6 +641,7 @@ export class AbstractControl {
         }
     }
     /**
+     * \@internal
      * @param {?} formState
      * @return {?}
      */
@@ -635,15 +650,22 @@ export class AbstractControl {
             Object.keys(formState).length === 2 && 'value' in formState && 'disabled' in formState;
     }
     /**
+     * \@internal
      * @param {?} fn
      * @return {?}
      */
     _registerOnCollectionChange(fn) { this._onCollectionChange = fn; }
 }
 function AbstractControl_tsickle_Closure_declarations() {
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     AbstractControl.prototype._value;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     AbstractControl.prototype._onCollectionChange;
     /** @type {?} */
     AbstractControl.prototype._valueChanges;
@@ -661,7 +683,10 @@ function AbstractControl_tsickle_Closure_declarations() {
     AbstractControl.prototype._parent;
     /** @type {?} */
     AbstractControl.prototype._asyncValidationSubscription;
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     AbstractControl.prototype._onDisabledChange;
     /** @type {?} */
     AbstractControl.prototype.validator;
@@ -669,10 +694,12 @@ function AbstractControl_tsickle_Closure_declarations() {
     AbstractControl.prototype.asyncValidator;
 }
 /**
+ * \@whatItDoes Tracks the value and validation status of an individual form control.
  *
  * It is one of the three fundamental building blocks of Angular forms, along with
  * {\@link FormGroup} and {\@link FormArray}.
  *
+ * \@howToUse
  *
  * When instantiating a {\@link FormControl}, you can pass in an initial value as the
  * first argument. Example:
@@ -707,6 +734,7 @@ function AbstractControl_tsickle_Closure_declarations() {
  *
  * * **npm package**: `\@angular/forms`
  *
+ * \@stable
  */
 export class FormControl extends AbstractControl {
     /**
@@ -800,15 +828,18 @@ export class FormControl extends AbstractControl {
         this.setValue(this._value, { onlySelf, emitEvent });
     }
     /**
+     * \@internal
      * @return {?}
      */
     _updateValue() { }
     /**
+     * \@internal
      * @param {?} condition
      * @return {?}
      */
     _anyControls(condition) { return false; }
     /**
+     * \@internal
      * @return {?}
      */
     _allControlsDisabled() { return this.disabled; }
@@ -819,6 +850,7 @@ export class FormControl extends AbstractControl {
      */
     registerOnChange(fn) { this._onChange.push(fn); }
     /**
+     * \@internal
      * @return {?}
      */
     _clearChangeFns() {
@@ -835,6 +867,7 @@ export class FormControl extends AbstractControl {
         this._onDisabledChange.push(fn);
     }
     /**
+     * \@internal
      * @param {?} cb
      * @return {?}
      */
@@ -855,10 +888,14 @@ export class FormControl extends AbstractControl {
     }
 }
 function FormControl_tsickle_Closure_declarations() {
-    /** @type {?} */
+    /**
+     * \@internal
+     * @type {?}
+     */
     FormControl.prototype._onChange;
 }
 /**
+ * \@whatItDoes Tracks the value and validity state of a group of {\@link FormControl}
  * instances.
  *
  * A `FormGroup` aggregates the values of each child {\@link FormControl} into one object,
@@ -869,6 +906,7 @@ function FormControl_tsickle_Closure_declarations() {
  * `FormGroup` is one of the three fundamental building blocks used to define forms in Angular,
  * along with {\@link FormControl} and {\@link FormArray}.
  *
+ * \@howToUse
  *
  * When instantiating a {\@link FormGroup}, pass in a collection of child controls as the first
  * argument. The key for each child will be the name under which it is registered.
@@ -906,6 +944,7 @@ function FormControl_tsickle_Closure_declarations() {
  *
  * * **npm package**: `\@angular/forms`
  *
+ * \@stable
  */
 export class FormGroup extends AbstractControl {
     /**
@@ -1108,6 +1147,7 @@ export class FormGroup extends AbstractControl {
         });
     }
     /**
+     * \@internal
      * @param {?} name
      * @return {?}
      */
@@ -1123,6 +1163,7 @@ export class FormGroup extends AbstractControl {
         }
     }
     /**
+     * \@internal
      * @param {?} cb
      * @return {?}
      */
@@ -1130,6 +1171,7 @@ export class FormGroup extends AbstractControl {
         Object.keys(this.controls).forEach(k => cb(this.controls[k], k));
     }
     /**
+     * \@internal
      * @return {?}
      */
     _setUpControls() {
@@ -1139,10 +1181,12 @@ export class FormGroup extends AbstractControl {
         });
     }
     /**
+     * \@internal
      * @return {?}
      */
     _updateValue() { this._value = this._reduceValue(); }
     /**
+     * \@internal
      * @param {?} condition
      * @return {?}
      */
@@ -1154,6 +1198,7 @@ export class FormGroup extends AbstractControl {
         return res;
     }
     /**
+     * \@internal
      * @return {?}
      */
     _reduceValue() {
@@ -1165,6 +1210,7 @@ export class FormGroup extends AbstractControl {
         });
     }
     /**
+     * \@internal
      * @param {?} initValue
      * @param {?} fn
      * @return {?}
@@ -1175,6 +1221,7 @@ export class FormGroup extends AbstractControl {
         return res;
     }
     /**
+     * \@internal
      * @return {?}
      */
     _allControlsDisabled() {
@@ -1186,6 +1233,7 @@ export class FormGroup extends AbstractControl {
         return Object.keys(this.controls).length > 0 || this.disabled;
     }
     /**
+     * \@internal
      * @param {?} value
      * @return {?}
      */
@@ -1202,6 +1250,7 @@ function FormGroup_tsickle_Closure_declarations() {
     FormGroup.prototype.controls;
 }
 /**
+ * \@whatItDoes Tracks the value and validity state of an array of {\@link FormControl}
  * instances.
  *
  * A `FormArray` aggregates the values of each child {\@link FormControl} into an array.
@@ -1211,6 +1260,7 @@ function FormGroup_tsickle_Closure_declarations() {
  * `FormArray` is one of the three fundamental building blocks used to define forms in Angular,
  * along with {\@link FormControl} and {\@link FormGroup}.
  *
+ * \@howToUse
  *
  * When instantiating a {\@link FormArray}, pass in an array of child controls as the first
  * argument.
@@ -1241,6 +1291,7 @@ function FormGroup_tsickle_Closure_declarations() {
  *
  * * **npm package**: `\@angular/forms`
  *
+ * \@stable
  */
 export class FormArray extends AbstractControl {
     /**
@@ -1432,6 +1483,7 @@ export class FormArray extends AbstractControl {
      */
     getRawValue() { return this.controls.map((control) => control.value); }
     /**
+     * \@internal
      * @param {?} index
      * @return {?}
      */
@@ -1447,6 +1499,7 @@ export class FormArray extends AbstractControl {
         }
     }
     /**
+     * \@internal
      * @param {?} cb
      * @return {?}
      */
@@ -1454,6 +1507,7 @@ export class FormArray extends AbstractControl {
         this.controls.forEach((control, index) => { cb(control, index); });
     }
     /**
+     * \@internal
      * @return {?}
      */
     _updateValue() {
@@ -1461,6 +1515,7 @@ export class FormArray extends AbstractControl {
             .map((control) => control.value);
     }
     /**
+     * \@internal
      * @param {?} condition
      * @return {?}
      */
@@ -1468,12 +1523,14 @@ export class FormArray extends AbstractControl {
         return this.controls.some((control) => control.enabled && condition(control));
     }
     /**
+     * \@internal
      * @return {?}
      */
     _setUpControls() {
         this._forEachChild((control) => this._registerControl(control));
     }
     /**
+     * \@internal
      * @param {?} value
      * @return {?}
      */
@@ -1485,6 +1542,7 @@ export class FormArray extends AbstractControl {
         });
     }
     /**
+     * \@internal
      * @return {?}
      */
     _allControlsDisabled() {
